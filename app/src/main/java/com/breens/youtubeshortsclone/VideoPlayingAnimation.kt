@@ -20,13 +20,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-@Preview
 fun VideoPlayingAnimation() {
     val infiniteTransition = rememberInfiniteTransition()
+
     val height1 by infiniteTransition.animateFloat(
         initialValue = 13f,
         targetValue = 13f,
@@ -51,6 +50,7 @@ fun VideoPlayingAnimation() {
         )
     )
 
+
     val height3 by infiniteTransition.animateFloat(
         initialValue = 8f,
         targetValue = 8f,
@@ -62,36 +62,44 @@ fun VideoPlayingAnimation() {
             repeatMode = RepeatMode.Reverse
         )
     )
-    
-    
+
     Box(
         modifier = Modifier
-        .size(20.dp)
-        .clip(CircleShape)
-        .background(Color.DarkGray),
+            .size(20.dp)
+            .clip(CircleShape)
+            .background(Color.DarkGray),
         contentAlignment = Alignment.Center
     ) {
-        Row(horizontalArrangement = Arrangement.spacedBy(2.dp), verticalAlignment = Alignment.CenterVertically) {
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(2.dp),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             Box(
                 modifier = Modifier
                     .width(2.dp)
                     .height(height1.dp)
                     .clip(RoundedCornerShape(50.dp))
-                    .background(Color.White)
+                    .background(
+                        Color.White
+                    )
             )
             Box(
                 modifier = Modifier
                     .width(2.dp)
                     .height(height2.dp)
                     .clip(RoundedCornerShape(50.dp))
-                    .background(Color.White)
+                    .background(
+                        Color.White
+                    )
             )
             Box(
                 modifier = Modifier
                     .width(2.dp)
                     .height(height3.dp)
                     .clip(RoundedCornerShape(50.dp))
-                    .background(Color.White)
+                    .background(
+                        Color.White
+                    )
             )
         }
     }

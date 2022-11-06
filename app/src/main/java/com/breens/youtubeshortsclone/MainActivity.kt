@@ -18,7 +18,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
 import com.breens.youtubeshortsclone.ui.theme.Black300
@@ -35,36 +34,32 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    @Preview(showSystemUi = true)
-    fun ChannelShortPlaying() {
+    private fun ChannelShortPlaying() {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Black300),
-            contentAlignment = Alignment.Center
+                .background(Black300), contentAlignment = Alignment.Center
         ) {
             Box(modifier = Modifier.size(60.dp)) {
                 Image(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(8.dp)),
-                    painter = painterResource(id = R.drawable.channel_logo),
+                    painter = painterResource(id = R.drawable.youtube_channel_logo),
                     contentDescription = null,
+                    modifier = Modifier.clip(
+                        RoundedCornerShape(8.dp)
+                    ),
                     contentScale = ContentScale.Crop
                 )
             }
-            Box(
-                modifier = Modifier
-                    .zIndex(2f)
-                    .graphicsLayer {
-                        translationX = 60f
-                        translationY = 50f
-                    }
-            ) {
-                Row(
-                    modifier = Modifier
-                        .align(Alignment.BottomEnd)
-                        .padding(top = 20.dp)
-                ) {
+
+            Box(modifier = Modifier
+                .zIndex(2f)
+                .graphicsLayer {
+                    translationX = 60f
+                    translationY = 50f
+                }) {
+                Row(modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(20.dp)) {
                     VideoPlayingAnimation()
                 }
             }
